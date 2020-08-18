@@ -1,93 +1,145 @@
 /* #*/ export const PERSON = `
 name:
-  first: John
+  first: Alex
   middle:
-  last: Doe
-about: Hi, my name is John Doe. I"m just about the most boring type of person you could
-       possibly imagine. I like collecting leaves from the tree in my back yard and documenting
-       each time I eat a peanut that is non-uniform. I am not a robot. Please hire me.
-position: Software Developer
+  last: Wang
+about: Hi, my name is Alex Wang. My dream is to conquer the world.
+position: Computer Science Student
 
-birth:
-  year: 1990
-  location: New York
+# birth:
+#   year: 2000
+#   location: New York
 
 experience:
-- company: Company A
-  position: Developer
-  timeperiod: since January 2016
-  description: Programming and watching cute cat videos.
-  website: https://example.com
+- company: Raise Your Edge
+  position: Full-Stack Software Engineer
+  timeperiod: September 2019 - December 2019
+  descriptions:
+    - item: Collaborated closely with lead developers and participated in all phases of software development
+    - item: Created interactive video quiz project using Angular
+    - item: Implemented and iterated backend algorithms that automates quiz generation
+    - item: Researched and itegrated third party tools into existing repository
 
-- company: Company B
-  position: Frontend Developer
-  timeperiod: January 2015 - December 2015
-  description: Fulfillment of extremely important tasks.
-
-- company: Company C
-  position: Trainee
-  timeperiod: March 2014 - December 2014
-  description: Making coffee and baking cookies.
+- company: Raise Your Edge
+  position: Full-Stack Software Engineer
+  timeperiod: April 2020 - June 2020
+  descriptions:
+    - item: Created Collection feature
+    - item: Created Release Scheduling tool
 
 education:
-- degree: Master of Arts
-  timeperiod: March 2012 - December 2013
-  description: Major in Hacking and Computer Penetration, University A, New York, USA.
-  website: https://example.com
-
-- degree: Bachelor of Science
-  timeperiod: March 2009 - December 2011
-  description: Major in Engineering, University B, Los Angeles, USA.
+- degree: Bachelor of Computer Science
+  timeperiod: University of Waterloo
+  description: September 2018 - April 2023
 
 # skill level goes 0 to 100
-skills:
+# languages
+
+# I need to list languages and frameworks
+# and also a coursework highlight
+languages:
+- name: Python
+- name: Javascript
+- name: C++
+- name: C
+- name: SQL
 - name: HTML5
-  level: 99
 - name: CSS3
-  level: 95
-- name: JavaScript
-  level: 97
-- name: Node.js
-  level: 93
-- name: Angular 2
-  level: 60
-- name: TypeScript
-  level: 80
-- name: ES.Next
-  level: 70
-- name: Docker
-  level: 99
-knowledge: Also proficient in Adobe Photoshop and Illustrator, grew up bilingual
-  (English and Klingon).
+- name: Kotlin
+- name: Swift
+- name: Java
+
+frameworks:
+- name: Pytorch
+- name: Tensorflow
+- name: Flask
+- name: Express
+- name: Vue
+- name: React
+- name: Angular
+- name: MySQL
+- name: PostgreSQL
+- name: GraphQL
+
+
+academic:
+- highlight: 95% Facaulty Average
+- highlight: 99% in CS348 Intro to Database
+- highlight: 98% in CS240 Data Structures
+- highlight: 96% in CS370 Numerical Computation
+
+
+
+
+
+# skills:
+# - name: HTML5
+#   # level: 99
+# - name: CSS3
+#   # level: 95
+# - name: JavaScript
+#   # level: 97
+# - name: Node.js
+#   # level: 93
+# - name: React
+#   # level: 60
+# - name: Angular
+#   # level: 80
+# - name: Typescript
+#   # level: 70
+# - name: Docker
+#   # level: 99
+# # knowledge: I know everything
 
 projects:
-- name: best-resume-ever
-  platform: Vue
+- name: visual-covid
+  platform: Vue, d3js
   timeperiod: February 2016
-  description: 👔 💼 Build fast 🚀 and easy multiple beautiful resumes and create your best CV ever! Made with Vue and LESS.
-  url: https://github.com/salomonelli/best-resume-ever
+  description: Coronavirus data visualization built with Vue and d3js
+  url: https://github.com/alexwang000/visual-covid
+- name: UW-scheduler
+  platform: React, PostgreSQL, flask
+  timeperiod: February 2016
+  description: A sheduling app for uwaterloo students
+  url: https://github.com/alexwang000/scheduler
+- name: country-graphQL-API
+  platform: graphQL
+  timeperiod: February 2016
+  description: A sheduling app for uwaterloo students
+  url: https://github.com/alexwang000/country-graphQL
+- name: efficient-GAN implementation
+  platform: pytorch
+  timeperiod: February 2016
+  description: A sheduling app for uwaterloo students
+  url: https://github.com/alexwang000/efficient-GAN
+- name: IOS-project?
+  platform: pytorch
+  timeperiod: February 2016
+  description: A sheduling app for uwaterloo students
+  url: https://github.com/alexwang000/efficient-GAN
 
-hobbies:
-- name: Video Games
-  iconClass: fa fa-gamepad
-  url: https://example.com
 
-- name: Drawing
-  iconClass: fa fa-pencil
-  url: https://example.com
+# hobbies:
+# - name: 
+#   iconClass: fa fa-gamepad
+#   url: https://example.com
 
-contributions:
-- name: best-resume-ever
-  description: 👔 💼 Build fast 🚀 and easy multiple beautiful resumes.
-  url: https://github.com/salomonelli/best-resume-ever
+# - name: Drawing
+#   iconClass: fa fa-pencil
+#   url: https://example.com
+
+# contributions:
+# - name: best-resume-ever
+#   description: 👔 💼 Build fast 🚀 and easy multiple beautiful resumes.
+#   url: https://github.com/salomonelli/best-resume-ever
 
 contact:
-  email: john.doe@email.com
-  phone: 0123 456789
-  street: 1234 Broadway
-  city: New York
-  website: johndoe.com
-  github: johnyD
+  email: ytwang000@gmail.com
+  phone: 548-333-3141
+  street: 200 University Avenue
+  city: Waterloo, ON
+  website: AlexWang000.github.io
+  github: AlexWang000
 # en, de, fr, pt, ca, cn, it, es, th, pt-br, ru, sv, id, hu, pl, ja, ka, nl, he, zh-tw, lt, ko, el, nb-no
 lang: en
 `

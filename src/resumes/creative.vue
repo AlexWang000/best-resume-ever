@@ -2,8 +2,8 @@
   <div class="resume" id="resume2">
     <div class="left-column">
       <div>
-        <div class="headline">
-          <span> {{ person.name.first }} {{ person.name.middle }} </span>
+        <div class="big-headline">
+          <span class="uppercase"> {{ person.name.first }} {{ person.name.middle }} </span>
           <span class="uppercase"> {{ person.name.last }} </span>
         </div>
 
@@ -22,19 +22,21 @@
         {{ person.knowledge }}
       </div>
 
-      <a :href="contactLinks.email">
-        <div class="block-marged txt-full-white">
-          {{ person.contact.email }}
-        </div>
-      </a>
-
-      <div class="block-marged txt-full-white">
-        {{ person.contact.phone }}
-      </div>
-
       <div class="social-container">
+        <a :href="contactLinks.email">
+          <div class="block-marged txt-full-white">
+            <i class="fa fa-envelope contact-icon"></i>
+            {{ person.contact.email }}
+          </div>
+        </a>
+
+        <div class="block-marged txt-full-white">
+          <i class="fa fa-phone contact-icon"></i>
+          {{ person.contact.phone }}
+        </div>
+
         <a v-if="person.contact.website"
-          :href="person.contact.website">
+          :href="'http://' + person.contact.website">
 
           <div class="block-marged txt-full-white">
             <i class="fa fa-globe contact-icon"></i>
@@ -77,8 +79,82 @@
         </a>
       </div>
 
-      <div class="hobbies-container">
-        <!-- <span class="subheadline">Hobbies</span> -->
+      <div v-if="person.languages"
+        class="skills-section section">
+        <div class="icon">
+          <i class="fa fa-code skill-icon"></i>
+          <span class="skill-headline"> Languages </span>
+        </div>
+
+        <div class="section-content-grid">
+          <a v-for="(language, index) in person.languages" :key="index"
+            class="grid-item"
+            :href="language.url">
+
+            <i v-if="language.iconClass" :class="'lang-icon ' + language.iconClass"></i>
+
+            <span v-else class="squarred-grid-item"> {{ language.name }} </span>
+          </a>
+        </div>
+      </div>
+
+      <div v-if="person.frameworks"
+        class="skills-section section">
+        <div class="icon">
+          <i class="fa fa-terminal skill-icon"></i>
+          <span class="skill-headline"> Frameworks </span>
+        </div>
+
+        <div class="section-content-grid">
+          <a v-for="(framework, index) in person.frameworks" :key="index"
+            class="grid-item"
+            :href="framework.url">
+
+            <i v-if="framework.iconClass" :class="'lang-icon ' + framework.iconClass"></i>
+
+            <span v-else class="squarred-grid-item"> {{ framework.name }} </span>
+          </a>
+        </div>
+      </div>
+
+
+      <div v-if="person.academic"
+        class="skills-section section">
+        <div class="icon">
+          <i class="material-icons skill-icon">done_all</i>
+          <span class="skill-headline"> Academic Highlight </span>
+        </div>
+
+        <div class="section-content-grid">
+          <span v-for="(academic, index) in person.academic" :key="index"
+          class="squarred-grid-item"> {{ academic.highlight }} </span>
+          <!-- <a v-for="(academic, index) in person.academic" :key="index"
+            class="grid-item">
+            <span class="squarred-grid-item"> {{ academic.highlight }} </span>
+          </a> -->
+        </div>
+      </div>
+
+      <!-- <div v-if="person.skills"
+        class="skills-section section">
+        <div class="icon">
+          <i class="material-icons skill-icon">done_all</i>
+          <span class="skill-headline"> {{ lang.skills }} </span>
+        </div>
+
+        <div class="section-content-grid">
+          <a v-for="(skill, index) in person.skills" :key="index"
+            class="grid-item"
+            :href="skill.url">
+
+            <i v-if="skill.iconClass" :class="'lang-icon ' + skill.iconClass"></i>
+
+            <span v-else class="squarred-grid-item"> {{ skill.name }} </span>
+          </a>
+        </div>
+      </div> -->
+
+      <!-- <div class="hobbies-container">
         <div class="hobbies-content">
           <a v-for="(hobby, index) in person.hobbies" :key="index"
             class="hobby-item"
@@ -88,7 +164,7 @@
             <span class="hobby-item__icon-label"> {{ hobby.name }} </span>
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="left-column-bg">
@@ -110,7 +186,13 @@
             <span class="section-content__header"> {{ experience.position }}</span>
             <span class="section-content__subheader"> {{ experience.company }}</span>
             <div class="section-content__text"> {{ experience.timeperiod }}</div>
-            <span class="section-content__text--light"> {{ experience.description }}</span>
+            <span v-for="(description, index) in experience.descriptions"  :key="index"
+              class="section-content__text--light experience-item">
+              <i class="fa fa-caret-right"></i>
+              <!-- <i class="fa fa- font-awesome-icons"></i> -->
+              {{description.item}}
+            </span>
+            <!-- <span class="section-content__text--light"> {{ experience.description }}</span> -->
           </a>
         </div>
       </div>
@@ -149,12 +231,15 @@
             <span class="section-content__header"> {{ project.name }} </span>
             <span class="section-content__subheader">{{ project.platform }}</span>
             <span class="section-content__text"> {{ project.description }} </span>
-            <span class="section-content__text--light"> {{ project.url }} </span>
+            <span class="section-content__text--light">
+              <i class="fa fa-github"></i>
+              {{ project.url }}
+            </span>
           </a>
         </div>
       </div>
 
-      <div v-if="person.skills"
+      <!-- <div v-if="person.skills"
         class="skills-section section">
         <div class="icon">
           <i class="material-icons">done_all</i>
@@ -171,7 +256,7 @@
             <span v-else class="squarred-grid-item"> {{ skill.name }} </span>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <div v-if="person.contributions"
         class="contributions-section section">
@@ -203,13 +288,13 @@ import Vue from 'vue';
 import { getVueOptions } from './options';
 
 const name = 'creative';
-
+console.log(getVueOptions(name).data());
 export default Vue.component(name, getVueOptions(name));
 </script>
 
 <style lang="less" scoped>
 
-@accent-color: #A800FA;
+@accent-color: #1484b8;
 
 .resume {
   display: flex;
@@ -220,7 +305,7 @@ export default Vue.component(name, getVueOptions(name));
 }
 
 .left-column {
-  width: 30%;
+  width: 25%;
   height: 100%;
   padding: 30px;
   padding-top: 45px;
@@ -266,7 +351,7 @@ export default Vue.component(name, getVueOptions(name));
   padding: 30px;
 
   height: 100%;
-  width: 65%;
+  width: 75%;
 }
 
 a {
@@ -283,6 +368,14 @@ a {
   color: @accent-color;
   position: relative;
   top: 5px;
+}
+
+.skill-icon {
+  color: white;
+  font-size: 1.5em;
+
+  top: 2px;
+  position: relative;
 }
 
 .font-awesome-icons {
@@ -303,6 +396,7 @@ a {
 
   top: 2px;
   position: relative;
+  // float: left;
 }
 
 .contact-icon-svg {
@@ -337,11 +431,18 @@ a {
 .social-container {
   margin-top: 30px;
   margin-bottom: 30px;
+  // text-align: start;
 }
 
 .headline {
   color: white;
   font-size: 1.3em;
+  font-weight: bold;
+}
+
+.big-headline {
+  color: white;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -360,9 +461,16 @@ a {
   margin-left: 5px;
 }
 
+.skill-headline {
+  color: white;
+  display: inline-block;
+  font-size: 1.2em;
+  margin-left: 5px;
+}
+
 .section-content {
   margin-top: 10px;
-  padding-left: 32px;
+  padding-left: 10px;
 }
 
 .section-content__item {
@@ -384,7 +492,7 @@ a {
 
   margin-top: 10px;
   margin-bottom: 10px;
-  padding-left: 32px;
+  padding-left: 10px;
 }
 
 .grid-item {
@@ -413,7 +521,7 @@ a {
 
   &:hover {
     background-color: transparent;
-    color: @accent-color;
+    color: rgba(0,0,0,0.42);
     transition: .5s;
   }
 }
@@ -494,6 +602,15 @@ a {
 
   display: block;
   margin-bottom: 10px;
+}
+
+.experience-item {
+  display: block;
+  // margin-left: 1em;
+  // text-indent: -0.3em;
+  // text-indent: 12px;
+  // float: left;
+  // clear: both;
 }
 
 </style>
