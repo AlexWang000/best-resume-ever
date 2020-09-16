@@ -13,24 +13,26 @@ position: Computer Science Student
 experience:
 - company: Raise Your Edge
   position: Full-Stack Software Engineer
-  timeperiod: September 2019 - December 2019
+  timeperiod: Sep 2019 - Dec 2019
   descriptions:
-    - item: Collaborated closely with lead developers and participated in all phases of software development
+    - item: Participated in the design, implementation, and iteration phases of the software development cycle to create an interactive video quiz project with theater mode and customer-facing frontend tools to support user generated content using Angular and Firebase Realtime Database
+    - item: Collaborated closely with lead developers and participated in all phases of software development Collaborated closely with lead developers and participated in all phases of software development
     - item: Created interactive video quiz project using Angular
     - item: Implemented and iterated backend algorithms that automates quiz generation
     - item: Researched and itegrated third party tools into existing repository
 
 - company: Raise Your Edge
   position: Full-Stack Software Engineer
-  timeperiod: April 2020 - June 2020
+  timeperiod: Apr 2020 - Jun 2020
   descriptions:
     - item: Created Collection feature
     - item: Created Release Scheduling tool
 
 education:
-- degree: Bachelor of Computer Science
-  timeperiod: University of Waterloo
-  description: September 2018 - April 2023
+- school: University of Waterloo
+  degree: B. of Computer Science
+  timeperiod: Sep 2018 - Apr 2023
+  # description: University of Waterloo
 
 # skill level goes 0 to 100
 # languages
@@ -40,14 +42,16 @@ education:
 languages:
 - name: Python
 - name: Javascript
+- name: Typescript
 - name: C++
 - name: C
 - name: SQL
-- name: HTML5
-- name: CSS3
-- name: Kotlin
+- name: HTML
+- name: CSS
 - name: Swift
 - name: Java
+- name: Kotlin
+- name: R
 
 frameworks:
 - name: Pytorch
@@ -61,12 +65,71 @@ frameworks:
 - name: PostgreSQL
 - name: GraphQL
 
+frontend:
+- name: React
+- name: Angular
+- name: Vue
+# - name: Gatsbyjs
+# - name: Nextjs
+- name: D3js
+- name: Redux
+- name: JQuery
+- name: Bootstrap
+
+backend:
+- name: Flask
+- name: Express
+- name: Django
+- name: GraphQL
+
+database:
+- name: MySQL
+- name: PostgreSQL
+- name: Firebase
+- name: MongoDB
+- name: SQLAlchemy
+
+
+ml:
+- name: Pytorch
+- name: Tensorflow
+- name: Keras
+
+mobile:
+- name: ReactNative
+- name: SwiftUI
+
+tools:
+- name: Git
+- name: Linux
+
 
 academic:
-- highlight: 95% Facaulty Average
-- highlight: 99% in CS348 Intro to Database
-- highlight: 98% in CS240 Data Structures
-- highlight: 96% in CS370 Numerical Computation
+# - highlight: 
+#     - description: Facaulty Average
+#     - value: 95%
+- highlight:
+    - description: CS350 Operating System
+    - value: 100%
+- highlight:
+    - description: CS348 Database
+    - value: 99%
+- highlight:
+    - description: CS240 Data Structures
+    - value: 98%
+- highlight:
+    - description: CS341 Algorithms
+    - value: 91%
+- highlight:
+    - description: CS246 Object-Oriented Program
+    - value: 91%
+- highlight:
+    - description: CS456 Computer Networks
+    - value: by 2021
+- highlight:
+    - description: CS480 Machine Learning
+    - value: by 2021
+
 
 
 
@@ -93,30 +156,47 @@ academic:
 
 projects:
 - name: visual-covid
-  platform: Vue, d3js
+  platform:
+    - Vue
+    - D3js
+    - "Live demo: alexwang000.github.io/visual-covid"
   timeperiod: February 2016
-  description: Coronavirus data visualization built with Vue and d3js
-  url: https://github.com/alexwang000/visual-covid
-- name: UW-scheduler
-  platform: React, PostgreSQL, flask
+  description:
+    - Created a data visualization web application to track coronavirus spread accross the world using Vue and D3js
+    - Implemented animated bar chart, line chart and world map to help compare coronavirus spread in different countries
+  url: github.com/alexwang000/visual-covid
+- name: UW-schedulemaker
+  platform:
+    - React
+    - PostgreSQL
+    - Flask
+    - SQLAlchemy
   timeperiod: February 2016
-  description: A sheduling app for uwaterloo students
-  url: https://github.com/alexwang000/scheduler
-- name: country-graphQL-API
-  platform: graphQL
+  description:
+    - Co-developed a web application for University of Waterloo students that suggusts available course schedules based on courses they have taken
+    - Used PostgreSQL to model the data, Flask and SQLAlchemy to build the backend and React to build the frontend
+  url: github.com/alexwang000/uw-schedulemaker
+- name: GAN implementations
+  platform:
+    - Tensorflow
   timeperiod: February 2016
-  description: A sheduling app for uwaterloo students
-  url: https://github.com/alexwang000/country-graphQL
-- name: efficient-GAN implementation
-  platform: pytorch
+  description:
+    - Implemented and experimented on a variety of Generative Adversarial Networks including DCGAN and CycleGAN using Tensorflow
+  url: github.com/alexwang000/GANs
+- name: graphQL-country
+  platform:
+    - GraphQL
+    - Apollo Server
+    - Express
   timeperiod: February 2016
-  description: A sheduling app for uwaterloo students
-  url: https://github.com/alexwang000/efficient-GAN
-- name: IOS-project?
-  platform: pytorch
-  timeperiod: February 2016
-  description: A sheduling app for uwaterloo students
-  url: https://github.com/alexwang000/efficient-GAN
+  description:
+    - Implemented a GraphQL API using Appollo Server to provide statistical data about different countries leveraging open databases from World Bank
+  url: github.com/alexwang000/graphql-country
+# - name: IOS-project?
+#   platform: Pytorch
+#   timeperiod: February 2016
+#   description: A sheduling app for uwaterloo students
+#   url: https://github.com/alexwang000/efficient-GAN
 
 
 # hobbies:

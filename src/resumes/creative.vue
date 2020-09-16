@@ -1,37 +1,75 @@
 <template>
   <div class="resume" id="resume2">
     <div class="left-column">
-      <div>
-        <div class="big-headline">
-          <span class="uppercase"> {{ person.name.first }} {{ person.name.middle }} </span>
-          <span class="uppercase"> {{ person.name.last }} </span>
-        </div>
-
-        <p>
-          <span class="txt-full-white"> {{ person.position }} </span>
-          <br/>
-          <span> {{ person.contact.city }} </span>
-        </p>
+      <div class="big-headline">
+        <span class="uppercase"> {{ person.name.first }} {{ person.name.middle }} </span>
+        <span class="uppercase"> {{ person.name.last }} </span>
       </div>
 
+      <div class="block-marged txt-full-white">
+        3A Computer Science Student
+      </div>
+      <div class="block-marged txt-full-white">
+        All degree required CS courses will be completed by 2021
+      </div>
+      <div class="skills-section section">
+        <div class="borderline-light">
+          <div class="icon skill-headline">
+            <span> CONTACT </span>
+          </div>
+        </div>
+
+        <div class="section-content" style="text-align: left;">
+          <a :href="contactLinks.email">
+            <div class="block-marged txt-full-white">
+              <i class="fa fa-envelope fa-fw" style="position: relative"></i>
+              {{ person.contact.email }}
+            </div>
+          </a>
+          <div class="block-marged txt-full-white">
+              <i class="fa fa-phone fa-fw"></i>
+
+            {{ person.contact.phone }}
+          </div>
+          <!-- <a v-if="person.contact.website" :href="'http://' + person.contact.website">
+            <div class="block-marged txt-full-white">
+              {{ person.contact.website }}
+            </div>
+          </a> -->
+          <a v-if="person.contact.github" :href="contactLinks.github" class="external-link">
+            <div class="block-marged txt-full-white">
+              <i class="fa fa-github fa-fw"></i>
+              {{ 'github.com/' + person.contact.github }}
+            </div>
+          </a>
+          <a v-if="person.contact.website" :href="'https://'+person.contact.website" class="external-link">
+            <div class="block-marged txt-full-white">
+              <i class="fa fa-globe fa-fw"></i>
+              {{ person.contact.website }}
+            </div>
+          </a>
+        </div>
+      </div>
+<!-- 
       <div class="multi-line-txt">
         {{ person.about }}
       </div>
 
       <div class="multi-line-txt">
         {{ person.knowledge }}
-      </div>
+      </div> -->
 
-      <div class="social-container">
+      <!-- <div class="social-container">
         <a :href="contactLinks.email">
           <div class="block-marged txt-full-white">
-            <i class="fa fa-envelope contact-icon"></i>
+            <i class="fa fa-envelope fa-fw contact-icon"></i>
+            <img src=../assets/email-24px.svg>
             {{ person.contact.email }}
           </div>
         </a>
 
         <div class="block-marged txt-full-white">
-          <i class="fa fa-phone contact-icon"></i>
+          <i class="fa fa-phone fa-fw contact-icon"></i>
           {{ person.contact.phone }}
         </div>
 
@@ -39,7 +77,7 @@
           :href="'http://' + person.contact.website">
 
           <div class="block-marged txt-full-white">
-            <i class="fa fa-globe contact-icon"></i>
+            <i class="fa fa-globe fa-fw contact-icon"></i>
             {{ person.contact.website }}
           </div>
         </a>
@@ -48,7 +86,7 @@
           :href="contactLinks.github"
           class="external-link">
 
-          <i class="fa fa-github contact-icon"></i>
+          <i class="fa fa-github fa-fw contact-icon"></i>
           <span class="block-marged txt-full-white">
             {{ person.contact.github }}
           </span>
@@ -77,63 +115,164 @@
             {{ person.contact.medium }}
           </span>
         </a>
+      </div> -->
+
+      <div class="skills-section section">
+         <div class="borderline-light">
+          <div class="skill-headline">
+            <!-- <i class="fa fa-code skill-icon"></i> -->
+            <span> SKILLS </span>
+          </div>
+        </div>
+
+        <div v-if="person.languages" class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-code skill-icon"></i> -->
+              <span> LANGUAGES </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(language, index) in person.languages" :key="index">
+              <span> {{ language.name}} </span>
+              <!-- <div v-if="index2 < person.languages.length-1" style="border-left:1px solid grey;height: 12px;margin-left: 10px; padding-right:10px;"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-terminal skill-icon"></i> -->
+              <span> Data Science </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(framework, index) in person.ml" :key="index">
+              <span> {{ framework.name}} </span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-terminal skill-icon"></i> -->
+              <span> frontend </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(framework, index) in person.frontend" :key="index">
+              <span> {{ framework.name}} </span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-terminal skill-icon"></i> -->
+              <span> backend </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(framework, index) in person.backend" :key="index">
+              <span> {{ framework.name}} </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-terminal skill-icon"></i> -->
+              <span> database </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(framework, index) in person.database" :key="index">
+              <span> {{ framework.name}} </span>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="skills-section section">
+          <div>
+            <div class="icon skill-headline">
+              <!-- <i class="fa fa-terminal skill-icon"></i> -->
+              <span> Mobile </span>
+            </div>
+          </div>
+
+          <div class="grid-display">
+            <div v-for="(framework, index) in person.mobile" :key="index">
+              <span> {{ framework.name}} </span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div v-if="person.languages"
-        class="skills-section section">
-        <div class="icon">
-          <i class="fa fa-code skill-icon"></i>
-          <span class="skill-headline"> Languages </span>
+      
+
+
+
+      <div class="skills-section section">
+        <div class="borderline-light">
+          <div class="icon skill-headline">
+            <!-- <i class="material-icons skill-icon">school</i> -->
+            <span>{{ lang.education }}</span>
+          </div>
         </div>
 
-        <div class="section-content-grid">
-          <a v-for="(language, index) in person.languages" :key="index"
-            class="grid-item"
-            :href="language.url">
+        <div class="section-content">
+          <div v-for="(education, index) in person.education" :key="index" class="section-content__item">
 
-            <i v-if="language.iconClass" :class="'lang-icon ' + language.iconClass"></i>
-
-            <span v-else class="squarred-grid-item"> {{ language.name }} </span>
-          </a>
-        </div>
-      </div>
-
-      <div v-if="person.frameworks"
-        class="skills-section section">
-        <div class="icon">
-          <i class="fa fa-terminal skill-icon"></i>
-          <span class="skill-headline"> Frameworks </span>
-        </div>
-
-        <div class="section-content-grid">
-          <a v-for="(framework, index) in person.frameworks" :key="index"
-            class="grid-item"
-            :href="framework.url">
-
-            <i v-if="framework.iconClass" :class="'lang-icon ' + framework.iconClass"></i>
-
-            <span v-else class="squarred-grid-item"> {{ framework.name }} </span>
-          </a>
+            <span class="section-content__subheader school">{{ education.degree }}</span>
+            <span class="section-content__header school"> {{ education.school }} </span>
+            <span class="section-content__subheader"> {{ education.timeperiod }} </span>
+            <div class="section-content__subheader" style="display:flex; flex-direction:row; justify-content: space-between">
+              <span class="section-content__subheader"> Cumulative Average</span>
+              <span class="section-content__subheader"> 94.35% </span>
+            </div>
+            <!-- <span class="section-content__text--light school"> {{ education.description }} </span> -->
+          </div>
         </div>
       </div>
 
-
-      <div v-if="person.academic"
-        class="skills-section section">
-        <div class="icon">
-          <i class="material-icons skill-icon">done_all</i>
-          <span class="skill-headline"> Academic Highlight </span>
+      <div v-if="person.academic" class="skills-section section">
+        <div>
+          <div class="icon skill-headline">
+            <!-- <i class="material-icons skill-icon">done_all</i> -->
+            <span> Relevant Courses </span>
+          </div>
         </div>
 
-        <div class="section-content-grid">
-          <span v-for="(academic, index) in person.academic" :key="index"
-          class="squarred-grid-item"> {{ academic.highlight }} </span>
+        <div style="display: flex; flex-direction:column;">
+          <div  v-for="(academic, index) in person.academic" :key="index" style="display: flex; flex-direction: row; justify-content: space-between">
+            <span>
+              {{ academic.highlight[0].description }}
+            </span>
+            <span>
+              {{ academic.highlight[1].value}}
+            </span>
+          </div>
           <!-- <a v-for="(academic, index) in person.academic" :key="index"
             class="grid-item">
             <span class="squarred-grid-item"> {{ academic.highlight }} </span>
           </a> -->
         </div>
       </div>
+
+
+
 
       <!-- <div v-if="person.skills"
         class="skills-section section">
@@ -167,75 +306,170 @@
       </div> -->
     </div>
 
-    <div class="left-column-bg">
-      <!-- <div><a href="/otot">toto</a></div> -->
-    </div>
+    <div class="left-column-bg"></div>
 
     <div class="right-column">
-      <div class="experience-section section">
-        <div class="icon">
-          <i class="material-icons small-icon">work</i>
-          <span class="section-headline">{{ lang.experience }}</span>
+      <!-- <div class="experience-section section">
+        <div class="borderline">
+            <div class="section-headline">
+              <span> SUMMARY OF QUALIFICATIONS </span>
+            </div>
         </div>
 
-        <div class="section-content">
-          <a v-for="(experience, index) in person.experience" :key="index"
-            class="section-content__item"
-            :href="experience.website">
+        <div v-if="person.languages" class="skills-section section">
+          <div class="borderline-light">
+            <div class="icon skill-headline">
+              <span> LANGUAGES </span>
+            </div>
+          </div>
 
-            <span class="section-content__header"> {{ experience.position }}</span>
-            <span class="section-content__subheader"> {{ experience.company }}</span>
-            <div class="section-content__text"> {{ experience.timeperiod }}</div>
-            <span v-for="(description, index) in experience.descriptions"  :key="index"
-              class="section-content__text--light experience-item">
-              <i class="fa fa-caret-right"></i>
-              <!-- <i class="fa fa- font-awesome-icons"></i> -->
-              {{description.item}}
-            </span>
-            <!-- <span class="section-content__text--light"> {{ experience.description }}</span> -->
-          </a>
+          <div>
+            <a v-for="(language, index) in person.languages" :key="index">
+              <span> {{ language.name + " | "}} </span>
+            </a>
+          </div>
+        </div>
+        <div v-if="person.languages" class="skills-section section">
+          <div class="borderline-light">
+            <div class="icon skill-headline">
+              <span> LANGUAGES </span>
+            </div>
+          </div>
+
+          <div>
+            <a v-for="(language, index) in person.languages" :key="index">
+              <span> {{ language.name + " | "}} </span>
+            </a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="experience-section section" style="margin-bottom: 0px;">
+        <div class="icon borderline">
+          <!-- <i class="material-icons small-icon">work</i> -->
+          <span class="section-headline">work experience</span>
+        </div>
+
+        
+
+        <!-- You need to hardcode it to add highlight -->
+        <div class="section-content">
+           <div class="section-content__item">
+            <span class="section-content__header pos">Full-Stack Software Engineer</span>
+            <div class="sub">
+              <span class="section-content__subheader division"> Raise Your Edge </span>
+              <!-- <div class="section-content__text division division-after"> Angular </div>
+              <div class="section-content__text division division-after"> Firebase </div> -->
+              <div class="section-content__text division-after"> Sep 2019 - Dec 2019 </div>
+            </div>
+            <ul class="list">
+
+
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Participated in the <span class="highlight">design</span>, <span class="highlight">implementation</span>, and <span class="highlight">iteration</span> phases of the software development cycle to create an <span class="highlight">interactive video quiz project</span>
+                with theater mode and customer-facing frontend tools to support user generated content using <span class="highlight">Angular and Firebase Realtime Database</span>
+              </li> -->
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Participated in the <span class="highlight">design</span>, <span class="highlight">implementation</span>, and <span class="highlight">iteration</span> phases of the software development cycle to create customer-facing frontend tools to support user generated content using <span class="highlight">Angular</span> and <span class="highlight">Firebase Realtime Database</span>
+              </li> -->
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Worked closely with lead developers to design and implement an online tutoring software using <span class="highlight">Angular</span> and <span class="highlight">Firebase</span>
+              </li>
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Implemented and iterated <span class="highlight"> core algorithms </span> to create automated quiz questions based on user generated data
+              </li>
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Architected and implemented a <span class="highlight"> highly interactive video player </span> to deliver quiz content leveraging Angular and third party video player frameworks
+                <!-- Researched and integrated thrid party softwares to create an enhanced video player that delivers quiz content -->
+              </li>
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Developed <span class="highlight"> data caching </span> feature and <span class="highlight"> optimized backend function complexity </span> to significantly improve website response time
+              </li>
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                <span class="highlight">Implemented and iterated algorithms</span> that generates automated quiz questions from dynamic user data and corresponding user-interfaces with the instruction from the lead designer
+              </li> -->
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Developed quiz caching feature and <span class="highlight">reduced complexity</span> of <span class="highlight">backend Firebase Cloud Functions</span> to greatly increase efficiency and improve user experience
+              </li>
+              <li class="section-content__text--light experience-item list-item sub-description">
+                <span class="highlight">Researched and integrated third party software</span> such as video.js, mediaelement.js and <span class="highlight">Firebase Cloud Storage</span> to create customer-facing UI components and robust backend functions
+              </li>
+              <li class="section-content__text--light experience-item list-item sub-description">
+                <span class="highlight">Took ownership of assigned projects</span> and proactively identified bugs and UI flaws. Reported and fixed them without interrupting the normal workflow
+              </li> -->
+            </ul>
+          </div>
+
+          <div class="section-content__item">
+            <span class="section-content__header pos">Full-Stack Software Engineer</span>
+            <div class="sub">
+              <span class="section-content__subheader division"> Raise Your Edge </span>
+              <!-- <div class="section-content__text division division-after"> Angular </div>
+              <div class="section-content__text division division-after"> Firebase </div> -->
+              <div class="section-content__text division-after"> Apr 2020 - Jun 2020 </div>
+            </div>
+            <ul class="list">
+              <!-- the problem with this part of text is that it's way too weak -->
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Interfaced with lead designers on a daily basis and <span class="highlight">implemented weekly updates </span> to the web application; took responsibility of assigned projects and fix emergency bugs immediately
+              </li>
+              <!-- the wording still has to be changed a bit -->
+              <li class="section-content__text--light experience-item list-item sub-description">
+                <!-- Improved author productivity by developing a variety utility tools  -->
+                Pitched and completed a project providing a variety of utility tools for authors allowing them to build upon existing quizzes and schedule post release dates which significantly <span class="highlight">improves their productivity</span>
+                <!-- Developed the release scheduling tool for authors to improve productivity using <span class="highlight">Google Cloud Scheduler</span> -->
+              </li>
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Minimized API calls and improved website response time by migrating Firebase Functions to Firebase Triggers
+                Migrated a portion of <span class="highlight"> Firebase Functions </span> to <span class="highlight"> Firebase Triggers </span> to minimize API calls based on experiments
+              </li> -->
+              <li class="section-content__text--light experience-item list-item sub-description">
+                Engineered and maintained a <span class="highlight">playlist project</span> which let users schedule a collection of quizzes to take and have their performance tracked in real time
+              </li>
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Improved author productivity by developing a variety utility tools  -->
+                <!-- Developed the release scheduling tool for authors to improve productivity using <span class="highlight">Google Cloud Scheduler</span> -->
+              <!-- </li> -->
+              <!-- <li class="section-content__text--light experience-item list-item sub-description">
+                Interfaced devops on a daily basis and took responsibility to fix emergency bugs
+              </li> -->
+            </ul>
+          </div>
+
         </div>
       </div>
 
-      <div class="education-section section">
-        <div class="icon">
-          <i class="material-icons">school</i>
-          <span class="section-headline">{{ lang.education }}</span>
-        </div>
+      <!-- Better hard code for more customization -->
 
-        <div class="section-content">
-          <a v-for="(education, index) in person.education" :key="index"
-            class="section-content__item"
-            :href="education.website">
-
-            <span class="section-content__header"> {{ education.school }} </span>
-            <span class="section-content__subheader">{{ education.degree }}</span>
-            <span class="section-content__text"> {{ education.timeperiod }} </span>
-            <span class="section-content__text--light"> {{ education.description }} </span>
-          </a>
-        </div>
-      </div>
-
-      <div v-if="person.projects"
-        class="projects-section section">
-        <div class="icon">
-          <i class="material-icons">code</i>
+      <div v-if="person.projects" class="projects-section section" style="margin-top: 0px;">
+        <div class="icon borderline">
+          <!-- <i class="material-icons">code</i> -->
           <span class="section-headline"> {{ lang.projects }} </span>
         </div>
 
         <div class="section-content">
-          <a v-for="(project, index) in person.projects" :key="index"
-            class="section-content__item"
-            :href="project.url">
-
-            <span class="section-content__header"> {{ project.name }} </span>
-            <span class="section-content__subheader">{{ project.platform }}</span>
-            <span class="section-content__text"> {{ project.description }} </span>
-            <span class="section-content__text--light">
-              <i class="fa fa-github"></i>
-              {{ project.url }}
-            </span>
-          </a>
+          <div v-for="(project, index) in person.projects" :key="index" class="section-content__item">
+            <div style="display: flex; flex-direction: row; justify-content: space-between">
+              <span class="section-content__header project-name"> {{ project.name }} </span>
+              <a class="section-content__text--light" :href="'https://' + project.url">
+              <!-- <i class="fa fa-github"></i> -->
+                {{ project.url }}
+              </a>
+            </div>
+            <div class="sub">
+              <div class="sub" v-for="(platform, index2) in project.platform" :key="index2">
+                <span class="section-content__subheader" style="color: rgb(226, 102, 57);">
+                  {{ platform }}
+                </span>
+                <div v-if="index2 < project.platform.length-1" style="border-left:1px solid grey;height: 12px;margin-left: 10px; padding-right:10px;"></div>
+              </div>
+            </div>
+            <ul class="list">
+              <li v-for="(description, index) in project.description" :key="index" class="section-content__text--light experience-item list-item sub-description">
+                {{ description }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -294,25 +528,26 @@ export default Vue.component(name, getVueOptions(name));
 
 <style lang="less" scoped>
 
-@accent-color: #1484b8;
+@accent-color: rgb(40,53,74);
+@title-color:  rgb(226, 102, 57);
 
 .resume {
   display: flex;
   position: relative;
 
-  font-family:'Roboto' !important;
+  font-family: 'Roboto' !important;
   font-size: 0.9em;
 }
 
 .left-column {
-  width: 25%;
+  width: 29%;
   height: 100%;
-  padding: 30px;
-  padding-top: 45px;
+  padding: 20px;
+  padding-top: 15px;
   text-align: left;
 
   color: #ffffff;
-  color:rgba(255,255,255,0.59);
+  // color:rgba(255,255,255,0.59);
   background-color: @accent-color;
   overflow: hidden;
   display: block;
@@ -328,15 +563,12 @@ export default Vue.component(name, getVueOptions(name));
   // You can put your own cover image in the url path
   // --------------------------------------
   // background: url('../assets/cover.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 25% 25%;
-  opacity: .4; // up this value to contrast the cover image
+  opacity: 0; // up this value to contrast the cover image
 
+  width: 25%;
   height: 100%;
-  width: 35%;
-  padding: 30px;
-  padding-top: 45px;
+  padding: 47px;
+  padding-top: 15px;
 
   display: block;
   overflow: hidden;
@@ -348,7 +580,8 @@ export default Vue.component(name, getVueOptions(name));
 .right-column {
   display: flex;
   flex-direction: column;
-  padding: 30px;
+  padding: 25px;
+  padding-top: 15px;
 
   height: 100%;
   width: 75%;
@@ -396,6 +629,8 @@ a {
 
   top: 2px;
   position: relative;
+  width: 20px;
+  height: 20px;
   // float: left;
 }
 
@@ -419,8 +654,8 @@ a {
 }
 
 .block-marged {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .multi-line-txt {
@@ -429,8 +664,8 @@ a {
 }
 
 .social-container {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   // text-align: start;
 }
 
@@ -448,55 +683,70 @@ a {
 
 .txt-full-white {
   color: white;
+  font-size: 1em;
 }
 
 .uppercase {
+  font-weight: 500;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
   text-transform: uppercase;
+  margin: 0;
+  // text-transform: uppercase;
 }
 
 .section-headline {
-  color: @accent-color;
+  color: #04284a;
   display: inline-block;
-  font-size: 1.2em;
-  margin-left: 5px;
+
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 0.1875rem;
+  text-transform: uppercase;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  // font-size: 1.2em;
+  // margin-left: 5px;
 }
 
 .skill-headline {
-  color: white;
+  // color: white;
+  color: @title-color;
   display: inline-block;
-  font-size: 1.2em;
-  margin-left: 5px;
+  // font-size: 1.2em;
+  // margin-left: 5px;
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 0.1875rem;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  // letter-spacing: 0.1875rem;
+  // line-height: 2rem;
+  text-transform: uppercase;
 }
 
 .section-content {
-  margin-top: 10px;
-  padding-left: 10px;
+  margin-top: 5px;
+  // padding-left: 5px;
 }
 
 .section-content__item {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .section-content__item-grid {
   flex: 1 1 0;
 
-  margin-bottom: 10px;
-  padding-right: 10px;
+  margin-bottom: 5px;
+  padding-right: 5px;
 }
 
-.section-content-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-}
-
-.grid-item {
-  padding-right: 20px;
+.grid-display {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .section-content__header {
@@ -528,7 +778,13 @@ a {
 
 .section-content__subheader {
   display: block;
-  font-weight: 400;
+
+  // font-size: 0.6875rem;
+  // font-weight: 30;
+  // letter-spacing: 0.09rem;
+  // line-height: 1rem;
+  // text-transform: uppercase;
+  // font-weight: 400;
 }
 
 .section-content__text {
@@ -605,12 +861,90 @@ a {
 }
 
 .experience-item {
-  display: block;
+  // display: block;
   // margin-left: 1em;
   // text-indent: -0.3em;
   // text-indent: 12px;
   // float: left;
   // clear: both;
 }
+
+.borderline {
+  border-bottom: 1px solid grey;
+}
+
+.list {
+  margin-block-start: 0em;
+  padding-inline-start: 1.5em;
+  list-style-position: outside;
+  margin-block-end: 0em;
+}
+
+.sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.division {
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 0.1rem;
+
+  font-size: 0.75rem;
+  font-weight: 50;
+  // margin: -5px;
+  padding-right: 10px;
+  border-right: 1px solid grey;
+  // color: @title-color;
+}
+
+.division-after {
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 0.1rem;
+
+  font-size: 0.75rem;
+  font-weight: 50;
+
+  padding-left: 10px;
+}
+
+.pos {
+  text-transform: uppercase;
+}
+
+.project-name {
+  text-transform: uppercase;
+}
+
+
+.sub-description {
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #4e4c4c;
+  background: #fff;
+  text-rendering: optimizeLegibility;
+}
+
+.school {
+  text-transform: uppercase;
+}
+.time {
+  color: white;
+}
+
+.highlight{
+  color: @title-color;
+}
+
+.borderline-light {
+  border-bottom: 1px solid white;
+}
+// .list-item {
+//   padding-left: 20px;
+// }
 
 </style>
